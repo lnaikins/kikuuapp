@@ -11,7 +11,7 @@ import SettingsScreen from './Screens/SettingsScreen'
 
 //Screen Names
 const homeName = 'Home';
-const detailsName = 'Details';
+const detailsName = 'Categories';
 const settingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
