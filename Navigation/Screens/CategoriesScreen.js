@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, FlatList, TouchableOpacity, TextInput, StyleSheet, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-ionicons';
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 const categories = [
     { id: 1, name: 'Recommend' },
@@ -85,7 +85,7 @@ export default function CategoriesScreen({ navigation }) {
 
     const renderProductItem = ({ item }) => (
         <View style={styles.productContainer}>
-            <Image source={item.image} style={styles.productImage} />
+            <Image source={{uri: item.image}} style={styles.productImage} />
             <Text style={styles.productName}>{item.name}</Text>
         </View>
     );
@@ -102,7 +102,8 @@ export default function CategoriesScreen({ navigation }) {
                     />
                 </View>
                 <View style={styles.imageContainer}>
-                    <Text style={styles.title}>{CategoryTitle}</Text> {/* Title for the product container */}
+                    <Text style={styles.title}>{CategoryTitle}</Text> 
+                    {/**  Title for the product container */}
                     <FlatList
                         data={products}
                         renderItem={renderProductItem}
