@@ -108,7 +108,7 @@ export default function CategoriesScreen({ navigation }) {
                         data={products}
                         renderItem={renderProductItem}
                         keyExtractor={(item) => item.id.toString()}
-                        numColumns={3} // Change this value to adjust the number of columns
+                        numColumns={2} // Change this value to adjust the number of columns
                     />
 
 
