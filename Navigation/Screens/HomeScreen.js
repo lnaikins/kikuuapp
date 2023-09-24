@@ -8,6 +8,11 @@ import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
 
 {key : Any , value : Any }
 
+Assignment.. 
+
+1. Make the title Lower Case 
+2. Fill Today's Deal and Thumbs Up Section with Items
+3. Add one more item to Tabs
 */
 
 
@@ -45,14 +50,17 @@ export default function HomeScreen({ navigation }) {
 
     const [index, setIndex] = useState(0)
 
+    // var index = 0
+    // function setIndex(index:Int){}
+
    /*  const [tabBarItems] = React.useState([
-        { key: 'today', title: 'Today Deal' },
+        { key: 'today', title: 'Today/'s Deal' },
         { key: 'thumbs_up', title: 'Thumbs Up items' }
     ]); */
 
     
-    var [routes] = React.useState([
-        { key: 'today', title: 'Today Deal' },
+    var [routes] = useState([
+        { key: 'today', title: 'Today\'s Deal' },
         { key: 'thumbs_up', title: 'Thumbs Up items' }
     ]);
 
