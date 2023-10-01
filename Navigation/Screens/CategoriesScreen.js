@@ -110,6 +110,9 @@ export default function CategoriesScreen({ navigation }) {
                         keyExtractor={(item) => item.id.toString()}
                         numColumns={2} // Change this value to adjust the number of columns
                     />
+
+
+
                 </View>
             </View>
         </View>
