@@ -4,10 +4,45 @@ import {
   Text,
   useWindowDimensions,
   StyleSheet,
+  FlatList,
   Image,
 } from "react-native";
 import { useState } from "react";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
+
+const todaysProducts = [
+  {
+    id: 7,
+    name: "Wigs",
+    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-171831.jpg",
+  },
+  {
+    id: 8,
+    name: "Personal Care Appliances",
+    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-122374.jpg",
+  },
+  {
+    id: 9,
+    name: "Briefcases",
+    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-927232.jpg",
+  },
+  {
+    id: 10,
+    name: "Hair Weft & Closure",
+    image:
+      "https://global2019-static-cdn.kikuu.com/kikuu-v3-383381-180321.jpeg",
+  },
+  {
+    id: 11,
+    name: "Tops & Tees",
+    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-952861.jpg",
+  },
+  {
+    id: 12,
+    name: "Headphones & Earphones",
+    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-563548-180809.jpg",
+  },
+];
 
 /*
 
@@ -21,9 +56,20 @@ Assignment..
 */
 
 const TodaysDeal = () => {
+  const renderProductItem = ({ item }) => (
+    <View style={styles.productContainer}>
+      <Image source={{ uri: item.image }} style={styles.productImage} />
+      <Text style={styles.productName}>{item.name}</Text>
+    </View>
+  );
   return (
-    <View>
-      <Text>Todays Deal</Text>
+    <View style={styles.imageContainer}>
+      <FlatList
+        data={todaysProducts}
+        renderItem={renderProductItem}
+        keyExtractor={(item) => item.id.toString()}
+        numColumns={3} // Change this value to adjust the number of columns
+      />
     </View>
   );
 };
@@ -82,3 +128,25 @@ export default function HomeScreen({ navigation }) {
     />
   );
 }
+
+const styles = StyleSheet.create({
+  productContainer: {
+    marginRight: 8,
+    width: 300,
+    //flexDirection : 'column',
+  },
+  imageContainer: {
+    flex: 1,
+  },
+  productName: {
+    marginTop: 8,
+    fontSize: 12,
+    fontWeight: "light",
+    textAlign: "center",
+  },
+  productImage: {
+    width: 150,
+    height: 150,
+    textAlign: "center",
+  },
+});
