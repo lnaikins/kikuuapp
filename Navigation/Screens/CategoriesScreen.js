@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, FlatList, TouchableOpacity, TextInput, StyleSheet, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-ionicons';
 import  { useState } from 'react';
+import { theme } from '../MainContainer';
 
 const categories = [
     { id: 1, name: 'Recommend' },
@@ -55,11 +56,12 @@ const WatchJewelry = [
 export default function CategoriesScreen({ navigation }) {
 
     var [products, setProducts] = useState(recomendedProducts)
+    const [isCustomDarkMode, setCustomMode] = theme();
 
     const [CategoryTitle, setCategoryTitle] = useState('Recommend');
 
     const renderCategoryItem = ({ item }) => (
-        <View style={styles.categoryContainer}>
+        <View style={styles.categoryContainer  }>
             <TouchableOpacity
                 style={styles.categoryItem}
                 onPress={() => {
@@ -92,7 +94,7 @@ export default function CategoriesScreen({ navigation }) {
 
 
     return (
-        <View style={styles.container}>
+        <View style={isCustomDarkMode ? styles.darkContainer : styles.lightContainer }>
             <View style={styles.contentContainer}>
                 <View style={styles.categoryContainer}>
                     <FlatList
@@ -126,6 +128,16 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 1,
         backgroundColor: '#FFFFFF',
+    },
+    lightContainer: {
+        flex: 1,
+        padding: 1,
+        backgroundColor: '#FFFFFF',
+    },
+    darkContainer: {
+        flex: 1,
+        padding: 1,
+        backgroundColor: '#181818',
     },
     title: {
         fontSize: 16,
@@ -161,6 +173,22 @@ const styles = StyleSheet.create({
         marginBottom: 2,
         marginRight: 8,
         backgroundColor: '#F5F5F5',
+        //height: 50,
+        width: 98,
+
+    },
+    lightCategoryContainer: {
+        marginBottom: 2,
+        marginRight: 8,
+        backgroundColor: '#F5F5F5',
+        //height: 50,
+        width: 98,
+
+    },
+    darkCategoryContainer: {
+        marginBottom: 2,
+        marginRight: 8,
+        backgroundColor: '#181818',
         //height: 50,
         width: 98,
 
