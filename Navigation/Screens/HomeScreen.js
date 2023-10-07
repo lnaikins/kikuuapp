@@ -225,6 +225,8 @@ const styles = StyleSheet.create({
   productContainer: {
     marginRight: 8,
     width: 160,
+    alignItems: 'center',
+    width: 160,
     alignItems: "center",
     //flexDirection : 'column',
   },
@@ -240,6 +242,5 @@ const styles = StyleSheet.create({
   productImage: {
     width: 150,
     height: 150,
-    textAlign: "center",
-  },
+},
 });
