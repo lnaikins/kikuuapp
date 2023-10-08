@@ -1,13 +1,33 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
-
+import * as React from "react";
+import { View, Text, StyleSheet, useColorScheme } from "react-native";
 
 export default function SettingsScreen({ navigation }) {
-    return( 
-        <View style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text
-                onPress={() => navigation.navigate('Home')}
-                style={{ fontSize: 26, fontWeight: 'bold', }}> Settings Screen </Text>
-        </View>
-    );
+  const isDarkMode = useColorScheme() === "dark";
+
+  return (
+    <View style={isDarkMode ? styles.blackcontainer : styles.whitecontainer}>
+      <Text style={isDarkMode ? styles.whiteText : styles.darkText}>
+        Hello World
+      </Text>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  blackcontainer: {
+    backgroundColor: "#181818",
+    flex: 1,
+    alignItems: "center",
+  },
+  whitecontainer: {
+    backgroundColor: "#FFFFFF",
+    flex: 1,
+    alignItems: "center",
+  },
+  whiteText: {
+    color: "#FFFFFF",
+  },
+  darkText: {
+    color: "#181818",
+  },
+});
