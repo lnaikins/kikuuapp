@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 1,
     backgroundColor: "#181818",
+    color: "#FFFFFF",
   },
 
   imageContainer: {
