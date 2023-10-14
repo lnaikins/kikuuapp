@@ -169,7 +169,13 @@ export default function CategoriesScreen({ navigation }) {
   const [CategoryTitle, setCategoryTitle] = useState("Recommend");
 
   const renderCategoryItem = ({ item }) => (
-    <View style={styles.categoryContainer}>
+    <View
+      style={
+        isCustomDarkMode
+          ? styles.darkCategoryContainer
+          : styles.lightCategoryContainer
+      }
+    >
       <TouchableOpacity
         style={styles.categoryItem}
         onPress={() => {
@@ -187,7 +193,13 @@ export default function CategoriesScreen({ navigation }) {
           setCategoryTitle(item.name);
         }}
       >
-        <Text style={styles.categoryName}>{item.name}</Text>
+        <Text
+          style={
+            isCustomDarkMode ? styles.productNameWhite : styles.productNameDark
+          }
+        >
+          {item.name}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -195,7 +207,13 @@ export default function CategoriesScreen({ navigation }) {
   const renderProductItem = ({ item }) => (
     <View style={styles.productContainer}>
       <Image source={{ uri: item.image }} style={styles.productImage} />
-      <Text style={styles.productName}>{item.name}</Text>
+      <Text
+        style={
+          isCustomDarkMode ? styles.productNameWhite : styles.productNameDark
+        }
+      >
+        {item.name}
+      </Text>
     </View>
   );
 
@@ -204,7 +222,13 @@ export default function CategoriesScreen({ navigation }) {
       style={isCustomDarkMode ? styles.darkContainer : styles.lightContainer}
     >
       <View style={styles.contentContainer}>
-        <View style={styles.categoryContainer}>
+        <View
+          style={
+            isCustomDarkMode
+              ? styles.darkCategoryContainer
+              : styles.lightCategoryContainer
+          }
+        >
           <FlatList
             data={categories}
             renderItem={renderCategoryItem}
@@ -327,10 +351,19 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 
-  productName: {
+  productNameWhite: {
     marginTop: 8,
     fontSize: 12,
     fontWeight: "light",
     textAlign: "center",
+    color: "#FFFFFF",
+  },
+
+  productNameDark: {
+    marginTop: 8,
+    fontSize: 12,
+    fontWeight: "light",
+    textAlign: "center",
+    color: "#181818",
   },
 });

@@ -137,10 +137,17 @@ Assignment..
 */
 
 const TodaysDeal = () => {
+  const [isCustomDarkMode, setCustomMode] = theme();
   const renderProductItem = ({ item }) => (
     <View style={styles.productContainer}>
       <Image source={{ uri: item.image }} style={styles.productImage} />
-      <Text style={styles.productName}>{item.name}</Text>
+      <Text
+        style={
+          isCustomDarkMode ? styles.productNameWhite : styles.productNameDark
+        }
+      >
+        {item.name}
+      </Text>
     </View>
   );
 
@@ -157,10 +164,17 @@ const TodaysDeal = () => {
 };
 
 const ThumbsupItems = () => {
+  const [isCustomDarkMode, setCustomMode] = theme();
   const renderProductItem = ({ item }) => (
     <View style={styles.productContainer}>
       <Image source={{ uri: item.image }} style={styles.productImage} />
-      <Text style={styles.productName}>{item.name}</Text>
+      <Text
+        style={
+          isCustomDarkMode ? styles.productNameWhite : styles.productNameDark
+        }
+      >
+        {item.name}
+      </Text>
     </View>
   );
   return (
@@ -176,10 +190,17 @@ const ThumbsupItems = () => {
 };
 
 const YourCart = () => {
+  const [isCustomDarkMode, setCustomMode] = theme();
   const renderProductItem = ({ item }) => (
     <View style={styles.productContainer}>
       <Image source={{ uri: item.image }} style={styles.productImage} />
-      <Text style={styles.productName}>{item.name}</Text>
+      <Text
+        style={
+          isCustomDarkMode ? styles.productNameWhite : styles.productNameDark
+        }
+      >
+        {item.name}
+      </Text>
     </View>
   );
   return (
@@ -257,16 +278,25 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 1,
     backgroundColor: "#181818",
-    color: "#FFFFFF",
   },
+
   imageContainer: {
     flex: 1,
   },
-  productName: {
+  productNameWhite: {
     marginTop: 8,
     fontSize: 12,
     fontWeight: "light",
     textAlign: "center",
+    color: "#FFFFFF",
+  },
+
+  productNameDark: {
+    marginTop: 8,
+    fontSize: 12,
+    fontWeight: "light",
+    textAlign: "center",
+    color: "#181818",
   },
   productImage: {
     width: 150,
