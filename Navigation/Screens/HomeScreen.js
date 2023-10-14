@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
+import { theme } from "../MainContainer";
 
 const todaysProducts = [
   {
@@ -25,93 +26,103 @@ const todaysProducts = [
   },
   {
     id: 9,
-    name: "Briefcases",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-927232.jpg",
+    name: "Original android Phone i14Pro Max",
+    image:
+      "https://global2019-static-cdn.kikuu.com/k-s-oss-1662544319279CabzQY6hkx.jpg?x-oss-process=style/p_list",
   },
   {
     id: 10,
-    name: "Hair Weft & Closure",
+    name: "Femal Muslim Robe Plus Size Women",
     image:
-      "https://global2019-static-cdn.kikuu.com/kikuu-v3-383381-180321.jpeg",
+      "https://global2019-static-cdn.kikuu.com/k-s-oss-1655803383153FKZpTEDhhE.jpg?x-oss-process=style/p_list",
   },
   {
     id: 11,
-    name: "Tops & Tees",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-952861.jpg",
+    name: "White Spot Disease Cream Vitiligo Ointment",
+    image:
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-32064352885685427.jpg?x-oss-process=style/p_list",
   },
   {
     id: 12,
-    name: "Headphones & Earphones",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-563548-180809.jpg",
+    name: "Xprinter POS 58 USB & USB + Bluetooth",
+    image:
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-1591260769037.jpeg?x-oss-process=style/p_list",
   },
 ];
 
 const thumbsUpProducts = [
   {
     id: 7,
-    name: "Wigs",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-171831.jpg",
+    name: "JBL C330TWS Bluetooth Earphones",
+    image:
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-6893413771050096.jpg?x-oss-process=style/p_list",
   },
   {
     id: 8,
-    name: "Personal Care Appliances",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-122374.jpg",
+    name: "Pure Copper Bracelet Men Magnetic Arthritis Adjustable",
+    image:
+      "https://global2019-static-cdn.kikuu.com/k-s-oss-1676275233687WNjxDp4ncz.jpg?x-oss-process=style/p_list",
   },
   {
     id: 9,
-    name: "Briefcases",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-927232.jpg",
+    name: "FrankColor Cardamom Age 26 Colors Eyeshadow",
+    image:
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-708677667709541.jpg?x-oss-process=style/p_list",
   },
   {
     id: 10,
-    name: "Hair Weft & Closure",
+    name: "Green Tea Face Mask Cleaning Mask Stick",
     image:
-      "https://global2019-static-cdn.kikuu.com/kikuu-v3-383381-180321.jpeg",
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-40095168321378115.jpg?x-oss-process=style/p_list",
   },
   {
     id: 11,
-    name: "Tops & Tees",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-952861.jpg",
+    name: "New Bride Headwear Tiara",
+    image:
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-21172381872492745.jpg?x-oss-process=style/p_list",
   },
   {
     id: 12,
-    name: "Headphones & Earphones",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-563548-180809.jpg",
+    name: "Men's Birkenstocks",
+    image:
+      "https://global2019-static-cdn.kikuu.com/k-s-oss-1655772035265cTwbsZnRbA.jpg?x-oss-process=style/p_list",
   },
 ];
 
 const yourCartProducts = [
   {
     id: 7,
-    name: "Wigs",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-171831.jpg",
+    name: "Luxury Wall Art Modern Minimalistic",
+    image:
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-27135168210079071.jpg?x-oss-process=style/p_list",
   },
   {
     id: 8,
-    name: "Personal Care Appliances",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-122374.jpg",
-  },
-  {
-    id: 9,
-    name: "Briefcases",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-927232.jpg",
-  },
-  {
-    id: 10,
-    name: "Hair Weft & Closure",
+    name: "Cheetah Print Heels",
     image:
-      "https://global2019-static-cdn.kikuu.com/kikuu-v3-383381-180321.jpeg",
+      "https://global2019-static-cdn.kikuu.com/upload-productImg-7262571240329857.jpg?x-oss-process=style/p_list",
   },
-  {
-    id: 11,
-    name: "Tops & Tees",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-952861.jpg",
-  },
-  {
-    id: 12,
-    name: "Headphones & Earphones",
-    image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-563548-180809.jpg",
-  },
+  // {
+  //   id: 9,
+  //   name: "Briefcases",
+  //   image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-927232.jpg",
+  // },
+  // {
+  //   id: 10,
+  //   name: "Hair Weft & Closure",
+  //   image:
+  //     "https://global2019-static-cdn.kikuu.com/kikuu-v3-383381-180321.jpeg",
+  // },
+  // {
+  //   id: 11,
+  //   name: "Tops & Tees",
+  //   image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-2-952861.jpg",
+  // },
+  // {
+  //   id: 12,
+  //   name: "Headphones & Earphones",
+  //   image: "https://global2019-static-cdn.kikuu.com/kikuu-v3-563548-180809.jpg",
+  // },
 ];
 
 /*
@@ -132,13 +143,14 @@ const TodaysDeal = () => {
       <Text style={styles.productName}>{item.name}</Text>
     </View>
   );
+
   return (
     <View style={styles.imageContainer}>
       <FlatList
         data={todaysProducts}
         renderItem={renderProductItem}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={3} // Change this value to adjust the number of columns
+        numColumns={2} // Change this value to adjust the number of columns
       />
     </View>
   );
@@ -157,7 +169,7 @@ const ThumbsupItems = () => {
         data={thumbsUpProducts}
         renderItem={renderProductItem}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={3} // Change this value to adjust the number of columns
+        numColumns={2} // Change this value to adjust the number of columns
       />
     </View>
   );
@@ -176,7 +188,7 @@ const YourCart = () => {
         data={yourCartProducts}
         renderItem={renderProductItem}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={3} // Change this value to adjust the number of columns
+        numColumns={2} // Change this value to adjust the number of columns
       />
     </View>
   );
@@ -189,6 +201,7 @@ const sceneMap = SceneMap({
 });
 
 export default function HomeScreen({ navigation }) {
+  const [isCustomDarkMode, setCustomMode] = theme();
   const layout = useWindowDimensions();
 
   const [index, setIndex] = useState(0);
@@ -212,12 +225,16 @@ export default function HomeScreen({ navigation }) {
         "" -> String
     */
   return (
-    <TabView
-      navigationState={{ index, routes }}
-      renderScene={sceneMap}
-      onIndexChange={setIndex}
-      initialLayout={{ width: layout.width }}
-    />
+    <View
+      style={isCustomDarkMode ? styles.darkContainer : styles.lightContainer}
+    >
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={sceneMap}
+        onIndexChange={setIndex}
+        initialLayout={{ width: layout.width }}
+      />
+    </View>
   );
 }
 
@@ -225,10 +242,22 @@ const styles = StyleSheet.create({
   productContainer: {
     marginRight: 8,
     width: 160,
-    alignItems: 'center',
+    alignItems: "center",
     width: 160,
     alignItems: "center",
     //flexDirection : 'column',
+  },
+
+  lightContainer: {
+    flex: 1,
+    padding: 1,
+    backgroundColor: "#FFFFFF",
+  },
+  darkContainer: {
+    flex: 1,
+    padding: 1,
+    backgroundColor: "#181818",
+    color: "#FFFFFF",
   },
   imageContainer: {
     flex: 1,
@@ -242,5 +271,5 @@ const styles = StyleSheet.create({
   productImage: {
     width: 150,
     height: 150,
-},
+  },
 });
